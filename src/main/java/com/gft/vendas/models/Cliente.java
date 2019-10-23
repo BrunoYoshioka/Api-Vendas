@@ -1,11 +1,12 @@
 package com.gft.vendas.models;
 
-import java.io.Serializable;
+import com.sun.prism.impl.VertexBuffer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
 public class Cliente implements Serializable {
@@ -40,6 +41,9 @@ public class Cliente implements Serializable {
 	private String cidade;
 	
 	private String estado;
+
+	@OneToMany
+	private List<Venda> vendas = new ArrayList<>();
 	
 	
 	public Cliente(Integer id, String nome, String cpfcnpj, String rgie, String rsocial, String cep, String endereco,
